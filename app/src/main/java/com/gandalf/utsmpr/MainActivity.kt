@@ -5,12 +5,14 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.widget.Toolbar
 
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var highScoreButton: LinearLayout
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
 
@@ -30,6 +32,12 @@ class MainActivity : AppCompatActivity() {
         val divisor = findViewById<LinearLayout>(R.id.divisor)
         val oprmath = findViewById<LinearLayout>(R.id.oprmath)
         val sio = findViewById<LinearLayout>(R.id.sio)
+        highScoreButton = findViewById(R.id.highScoreButton)
+
+        highScoreButton.setOnClickListener(){
+            val intent = Intent(this, HighScoreActivity::class.java)
+            startActivity(intent)
+        }
 
         divisor.setOnClickListener {
             val intent = Intent(this,GameActivity::class.java)
