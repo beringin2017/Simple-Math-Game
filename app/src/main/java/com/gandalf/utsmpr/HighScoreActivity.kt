@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.*
 
 class HighScoreActivity : AppCompatActivity() {
@@ -17,32 +19,31 @@ class HighScoreActivity : AppCompatActivity() {
 
         hsText = findViewById(R.id.highScoreText)
         hsText.text = ""
-        val db = Room.databaseBuilder(
-            applicationContext,MathAppGameDatabase::class.java,
-            "highscore"
-        ).fallbackToDestructiveMigration().build()
+
 
 
         GlobalScope.launch {
-
-            val highScores = db.highScoreDao().getHighScores()
-            highScores.collect { highScores ->
-
-                val newHighScore = HighScore(UUID.randomUUID().toString(), "raj", 0, 10)
-                db.highScoreDao().insertHighScore(newHighScore)
+            val highScore = HighScore(UUID.randomUUID().toString(), "raj",0, 10)
+            MathAppGameRepo.db.highScoreDao().getHighScores().collect() {
+                    highScores ->
+                var highScoresString = ""
                 for (hs in highScores) {
-                    runOnUiThread {
-                        hsText.append(hs.id + hs.name + "\n"
-                                + hs.score + "\n"
-                                + hs.type + "\n"
-                                + "\n\n")
-                    }
+                    highScoresString = highScoresString + hs.id + "\n" + hs.name + "\n" + hs.score + "\n" + hs.type + "\n\n"
+                }
+                withContext(Dispatchers.Main)
+                {
+                    updateTextString(highScoresString)
+                }
+
                 }
             }
         }
 
+        fun updateTextString(textSring : String)
+        {
+            hsText.text = textSring
+        }
 
 
 
     }
-}

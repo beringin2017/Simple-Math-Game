@@ -21,7 +21,7 @@ class GameActivity : AppCompatActivity() {
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
     lateinit var timerProgressBar: ProgressBar
-    val maxTimeInMillis = 50000L
+    var maxTimeInMillis = 5000L
     val minTimeInMillis = 0L
     val intervalInMillis = 1L
     lateinit var timer: CountDownTimer
