@@ -3,9 +3,9 @@ package com.gandalf.utsmpr
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
 
@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         val divisor = findViewById<LinearLayout>(R.id.divisor)
         val oprmath = findViewById<LinearLayout>(R.id.oprmath)
         val sio = findViewById<LinearLayout>(R.id.sio)
+        val hs = findViewById<LinearLayout>(R.id.hsButton)
 
         divisor.setOnClickListener {
             val intent = Intent(this,GameActivity::class.java)
@@ -49,6 +50,13 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,GameActivity::class.java)
             intent.putExtra("judul", "Sort It Out")
             intent.putExtra("id", 3)
+            startActivity(intent)
+        }
+
+        hs.setOnClickListener{
+            val intent = Intent(this, HighScoreDisplay::class.java)
+            intent.putExtra("judul", "High Score")
+            intent.putExtra("id", 4)
             startActivity(intent)
         }
 

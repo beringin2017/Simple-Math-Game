@@ -79,10 +79,6 @@
                     android:id="@+id/divisor"
                     android:layout_width="100dp"
                     android:layout_height="120dp"
-                    android:paddingStart="10dp"
-                    android:layout_marginHorizontal="20dp"
-                    android:paddingEnd="10dp"
-                    android:layout_marginEnd="10dp"
                     android:orientation="vertical">
 
                     <ImageView
@@ -108,9 +104,7 @@
                     android:id="@+id/oprmath"
                     android:layout_width="100dp"
                     android:layout_height="120dp"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginStart="10dp"
                     android:orientation="vertical">
 
                     <ImageView
@@ -133,30 +127,12 @@
 
                 </LinearLayout>
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:padding="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
                 <LinearLayout
                     android:id="@+id/sio"
                     android:layout_width="100dp"
                     android:layout_height="120dp"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginStart="10dp">
 
                     <ImageView
                         android:layout_width="60dp"
@@ -178,6 +154,36 @@
                 </LinearLayout>
 
             </LinearLayout>
+
+                  <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                      android:gravity="center">
+
+                      <LinearLayout
+                          android:id="@+id/hsButton"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical"
+                          android:gravity="center">
+                          <ImageView
+                              android:layout_width="70dp"
+                              android:layout_height="70dp"
+                              android:src="@drawable/ic_score"
+                              android:scaleType="fitCenter"/>
+
+                          <TextView
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:text="High Score"
+                              android:textSize="16sp"
+                              android:textColor="#007C63"
+                              android:layout_gravity="center"/>
+                      </LinearLayout>
+
+
+                 </LinearLayout>
 
             <Space
                 android:layout_width="match_parent"
