@@ -10,5 +10,4 @@ data class HighScore(
     val username: String,
     val score: Int,
     val dateTime: String
-) {
-}
+)

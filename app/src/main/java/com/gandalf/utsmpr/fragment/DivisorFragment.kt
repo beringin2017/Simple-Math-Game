@@ -89,6 +89,8 @@ class DivisorFragment : Fragment() {
     }
 
 
+    private fun insertDataToDatabase(){
+    }
 
     fun rand() : Int {
         return randomGenerator.nextInt(maxangka - minangka) + minangka
