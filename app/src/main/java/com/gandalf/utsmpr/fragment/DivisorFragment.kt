@@ -1,5 +1,7 @@
 package com.gandalf.utsmpr.fragment
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,22 +10,21 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.gandalf.utsmpr.R
-import com.gandalf.utsmpr.data.HighScoreViewModel
 import kotlin.random.Random
 
 class DivisorFragment : Fragment() {
 
-    private lateinit var mHighScoreViewModel: HighScoreViewModel
-    var maxangka = 49
-    var maxangkautama = 5
-    var minangka = 1
-    var randomGenerator = Random(System.currentTimeMillis())
-    lateinit var buttons : Array<Button>
-    lateinit var arrayInt : Array<Int>
-    var angkarand5 = 0
-    var currentScore: Int = 0
+    private lateinit var sharedPreferences: SharedPreferences
+    private var maxangka = 49
+    private var maxangkautama = 5
+    private var minangka = 1
+    private var randomGenerator = Random(System.currentTimeMillis())
+    private lateinit var buttons : Array<Button>
+    private lateinit var arrayInt : Array<Int>
+    private var angkarand5 = 0
+    private var currentScore: Int = 0
+    private lateinit var editor: SharedPreferences.Editor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +38,8 @@ class DivisorFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_divisor, container, false)
 
-        mHighScoreViewModel = ViewModelProvider(this).get(HighScoreViewModel::class.java)
+        sharedPreferences = requireActivity().getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
+        editor = sharedPreferences.edit()
 
         buttons = arrayOf(view.findViewById(R.id.a1),
             view.findViewById(R.id.a2),
@@ -67,6 +69,8 @@ class DivisorFragment : Fragment() {
             if (hasil == 0){
                 Toast.makeText(requireContext(),"benar",Toast.LENGTH_SHORT).show()
                 currentScore += 1
+                editor.putInt("skor",currentScore)
+                editor.apply()
                 generateGame()
 
             }
@@ -88,15 +92,11 @@ class DivisorFragment : Fragment() {
         return view
     }
 
-
-    private fun insertDataToDatabase(){
-    }
-
-    fun rand() : Int {
+    private fun rand() : Int {
         return randomGenerator.nextInt(maxangka - minangka) + minangka
     }
 
-    fun randutama() : Int {
+    private fun randutama() : Int {
         return randomGenerator.nextInt(maxangkautama - minangka) + minangka
     }
 

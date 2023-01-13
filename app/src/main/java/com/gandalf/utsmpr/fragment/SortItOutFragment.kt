@@ -1,5 +1,7 @@
 package com.gandalf.utsmpr.fragment
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,12 +15,14 @@ import kotlin.random.Random
 
 class SortItOutFragment : Fragment() {
 
+    private lateinit var sharedPreferences: SharedPreferences
     var maxangka = 19
     var minangka = 1
     var deret = 0
     var randomGenerator = Random(System.currentTimeMillis())
     lateinit var buttons : Array<Button>
     lateinit var arrayInt : Array<Int>
+    private lateinit var editor: SharedPreferences.Editor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +35,9 @@ class SortItOutFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_sort_it_out, container, false)
+
+        sharedPreferences = requireActivity().getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
+        editor = sharedPreferences.edit()
 
         buttons = arrayOf(view.findViewById(R.id.angka1),
                     view.findViewById(R.id.angka2),
@@ -58,8 +65,9 @@ class SortItOutFragment : Fragment() {
                     check(button.text.toString(),button)
                 }
                 else{
+                    editor.putInt("skor",100)
+                    editor.apply()
                     Toast.makeText(requireContext(),"ntapss",Toast.LENGTH_SHORT).show()
-                    activity?.finish()
                 }
             }
         }
