@@ -19,6 +19,7 @@ import com.gandalf.utsmpr.data.HighScore
 import com.gandalf.utsmpr.fragment.DivisorFragment
 import com.gandalf.utsmpr.fragment.OperationMathFragment
 import com.gandalf.utsmpr.fragment.SortItOutFragment
+import java.text.SimpleDateFormat
 import java.util.*
 
 class GameActivity : AppCompatActivity() {
@@ -26,7 +27,7 @@ class GameActivity : AppCompatActivity() {
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
     lateinit var timerProgressBar: ProgressBar
-    var maxTimeInMillis = 10000L
+    var maxTimeInMillis = 30000L
     val minTimeInMillis = 0L
     val intervalInMillis = 1L
     lateinit var timer: CountDownTimer
@@ -152,7 +153,7 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun insertDataDivisor(){
-        val dateTime = Calendar.getInstance().time.toString()
+        val dateTime = SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().time)
         highScore = sharedPreferences.getInt("skor",0)
         var db = MyDBHelper(this);
         val hs = HighScore(username,highScore,dateTime)
@@ -166,9 +167,10 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun insertDataOprmath(){
+        val dateTime = SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().time)
         highScore = sharedPreferences.getInt("skor",0)
         var db = MyDBHelper(this);
-        val hs = HighScore(username,highScore,"18 Maret")
+        val hs = HighScore(username,highScore,dateTime)
         val updateScore = db.insertDataOprmath(hs)
         if (updateScore > -1){
             Toast.makeText(this,"Success", Toast.LENGTH_SHORT).show()
@@ -179,9 +181,10 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun insertDataSio(){
+        val dateTime = SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().time)
         highScore = sharedPreferences.getInt("skor",0)
         var db = MyDBHelper(this);
-        val hs = HighScore(username,highScore,"18 Maret")
+        val hs = HighScore(username,highScore,dateTime)
         val updateScore = db.insertDataSio(hs)
         if (updateScore > -1){
             Toast.makeText(this,"Success", Toast.LENGTH_SHORT).show()

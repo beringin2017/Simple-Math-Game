@@ -23,6 +23,7 @@ class SortItOutFragment : Fragment() {
     lateinit var buttons : Array<Button>
     lateinit var arrayInt : Array<Int>
     private lateinit var editor: SharedPreferences.Editor
+    private var currentScore: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,44 +52,59 @@ class SortItOutFragment : Fragment() {
 
         arrayInt = arrayOf(0,0,0,0,0,0,0,0,0)
 
-        for (i in 0..8){
-            arrayInt[i] = rand()
-            buttons[i].text = arrayInt[i].toString()
+
+        fun generateGame(){
+            deret = 0
+            for (i in 0..8){
+                arrayInt[i] = rand()
+                buttons[i].text = arrayInt[i].toString()
+            }
+
+            arrayInt.sort()
         }
+
+        generateGame()
 
         for (button in buttons)
         {
             button.setOnClickListener()
             {
-                    view : View ->
-                if(deret != 8){
+
+            if(deret != 8){
                     check(button.text.toString(),button)
                 }
                 else{
-                    editor.putInt("skor",100)
+
+                    currentScore += 1
+                    editor.putInt("skor",currentScore)
                     editor.apply()
+                    for (button in buttons) {
+                        button.isEnabled = true
+                        button.setBackgroundResource(R.drawable.bg_button)
+                    }
+                    generateGame()
+
                     Toast.makeText(requireContext(),"ntapss",Toast.LENGTH_SHORT).show()
                 }
             }
         }
 
-        arrayInt.sort()
+
 
         return view
     }
 
     fun check(angka:String,button: Button){
-        for (i in deret..deret){
-            if (angka == arrayInt[i].toString()){
-                button.isEnabled = false
-                button.setBackgroundResource(R.drawable.bg_roundedgrey)
-                deret++
-            }
-            else{
-                Toast.makeText(requireContext(),"salah",Toast.LENGTH_SHORT).show()
-            }
+        if (angka == arrayInt[deret].toString()){
+            button.isEnabled = false
+            button.setBackgroundResource(R.drawable.bg_roundedgrey)
+            deret++
+        }
+        else{
+            Toast.makeText(requireContext(),"salah",Toast.LENGTH_SHORT).show()
         }
     }
+
 
     fun rand() : Int {
         return randomGenerator.nextInt(maxangka - minangka) + minangka
