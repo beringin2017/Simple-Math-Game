@@ -155,7 +155,7 @@ class GameActivity : AppCompatActivity() {
     private fun insertDataDivisor(){
         val dateTime = SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().time)
         highScore = sharedPreferences.getInt("skor",0)
-        var db = MyDBHelper(this);
+        var db = MyDBHelper(this)
         val hs = HighScore(username,highScore,dateTime)
         val updateScore = db.insertDataDivisor(hs)
         if (updateScore > -1){
@@ -169,7 +169,7 @@ class GameActivity : AppCompatActivity() {
     private fun insertDataOprmath(){
         val dateTime = SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().time)
         highScore = sharedPreferences.getInt("skor",0)
-        var db = MyDBHelper(this);
+        var db = MyDBHelper(this)
         val hs = HighScore(username,highScore,dateTime)
         val updateScore = db.insertDataOprmath(hs)
         if (updateScore > -1){
@@ -183,7 +183,7 @@ class GameActivity : AppCompatActivity() {
     private fun insertDataSio(){
         val dateTime = SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().time)
         highScore = sharedPreferences.getInt("skor",0)
-        var db = MyDBHelper(this);
+        var db = MyDBHelper(this)
         val hs = HighScore(username,highScore,dateTime)
         val updateScore = db.insertDataSio(hs)
         if (updateScore > -1){
