@@ -1,4 +1,4 @@
-package com.gandalf.utsmpr
+package com.gandalf.simpleMathGame
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

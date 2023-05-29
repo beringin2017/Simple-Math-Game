@@ -1,4 +1,4 @@
-package com.gandalf.utsmpr.fragment
+package com.gandalf.simpleMathGame.fragment
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.gandalf.utsmpr.R
+import com.gandalf.simpleMathGame.R
 
 class OperationMathFragment : Fragment() {
 
@@ -70,8 +70,7 @@ class OperationMathFragment : Fragment() {
             Toast.makeText(requireContext(),"Benar",Toast.LENGTH_SHORT).show()
         }
         else{
-            editor.putInt("skor",0)
-            editor.apply()
+
             generateMathOps()
             Toast.makeText(requireContext(),"Salah",Toast.LENGTH_SHORT).show()
         }
@@ -85,8 +84,7 @@ class OperationMathFragment : Fragment() {
             Toast.makeText(requireContext(),"Benar",Toast.LENGTH_SHORT).show()
         }
         else{
-            editor.putInt("skor",0)
-            editor.apply()
+
             generateMathOps()
             Toast.makeText(requireContext(),"Salah",Toast.LENGTH_SHORT).show()
         }
@@ -100,8 +98,7 @@ class OperationMathFragment : Fragment() {
             Toast.makeText(requireContext(),"Benar",Toast.LENGTH_SHORT).show()
         }
         else{
-            editor.putInt("skor",0)
-            editor.apply()
+
             generateMathOps()
             Toast.makeText(requireContext(),"Salah",Toast.LENGTH_SHORT).show()
         }

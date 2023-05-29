@@ -1,4 +1,4 @@
-package com.gandalf.utsmpr
+package com.gandalf.simpleMathGame
 
 import android.app.Dialog
 import android.content.Context
@@ -15,10 +15,10 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import com.gandalf.utsmpr.data.HighScore
-import com.gandalf.utsmpr.fragment.DivisorFragment
-import com.gandalf.utsmpr.fragment.OperationMathFragment
-import com.gandalf.utsmpr.fragment.SortItOutFragment
+import com.gandalf.simpleMathGame.data.HighScore
+import com.gandalf.simpleMathGame.fragment.DivisorFragment
+import com.gandalf.simpleMathGame.fragment.OperationMathFragment
+import com.gandalf.simpleMathGame.fragment.SortItOutFragment
 import java.text.SimpleDateFormat
 import java.util.*
 

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.gandalf.utsmpr'
+    namespace 'com.gandalf.simpleMathGame'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.gandalf.utsmpr"
+        applicationId 'com.gandalf.simpleMathGame'
         minSdk 21
         targetSdk 33
         versionCode 1

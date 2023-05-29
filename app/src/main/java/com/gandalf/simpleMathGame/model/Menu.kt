@@ -1,4 +1,4 @@
-package com.gandalf.utsmpr.model
+package com.gandalf.simpleMathGame.model
 
 class Menu {
     var id = 0

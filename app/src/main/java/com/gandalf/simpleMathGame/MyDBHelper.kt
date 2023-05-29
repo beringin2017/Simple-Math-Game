@@ -1,4 +1,4 @@
-package com.gandalf.utsmpr
+package com.gandalf.simpleMathGame
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
@@ -6,7 +6,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.gandalf.utsmpr.data.HighScore
+import com.gandalf.simpleMathGame.data.HighScore
 
 class MyDBHelper(var context : Context) : SQLiteOpenHelper(context,"highscore.db",null,2) {
     override fun onCreate(db: SQLiteDatabase?) {

@@ -1,4 +1,4 @@
-package com.gandalf.utsmpr.fragment
+package com.gandalf.simpleMathGame.fragment
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.gandalf.utsmpr.R
+import com.gandalf.simpleMathGame.R
 import kotlin.random.Random
 
 

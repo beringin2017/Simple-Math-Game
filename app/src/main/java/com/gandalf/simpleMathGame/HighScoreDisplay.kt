@@ -1,4 +1,4 @@
-package com.gandalf.utsmpr
+package com.gandalf.simpleMathGame
 
 import android.os.Bundle
 import android.widget.TextView

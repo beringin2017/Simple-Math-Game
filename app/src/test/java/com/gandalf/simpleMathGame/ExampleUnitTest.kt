@@ -1,4 +1,4 @@
-package com.gandalf.utsmpr
+package com.gandalf.simpleMathGame
 
 import org.junit.Test
 
