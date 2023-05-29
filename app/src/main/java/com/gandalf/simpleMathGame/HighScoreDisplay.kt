@@ -16,7 +16,7 @@ class HighScoreDisplay : AppCompatActivity() {
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar!!.setTitle(judul)
+        supportActionBar!!.title = judul
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
         toolbar.setSubtitleTextColor(resources.getColor(android.R.color.white))

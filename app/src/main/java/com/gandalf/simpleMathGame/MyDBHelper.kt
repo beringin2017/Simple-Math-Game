@@ -21,31 +21,31 @@ class MyDBHelper(var context : Context) : SQLiteOpenHelper(context,"highscore.db
 
     fun insertDataDivisor(highScore: HighScore):Long{
         val db = this.writableDatabase
-        var cv = ContentValues()
+        val cv = ContentValues()
         cv.put("username",highScore.username)
         cv.put("score",highScore.score)
         cv.put("datetime",highScore.datetime)
-        var success = db.insert("divisor",null,cv)
+        val success = db.insert("divisor",null,cv)
         return success
     }
 
     fun insertDataOprmath(highScore: HighScore):Long{
         val db = this.writableDatabase
-        var cv = ContentValues()
+        val cv = ContentValues()
         cv.put("username",highScore.username)
         cv.put("score",highScore.score)
         cv.put("datetime",highScore.datetime)
-        var success = db.insert("oprmath",null,cv)
+        val success = db.insert("oprmath",null,cv)
         return success
     }
 
     fun insertDataSio(highScore: HighScore):Long{
         val db = this.writableDatabase
-        var cv = ContentValues()
+        val cv = ContentValues()
         cv.put("username",highScore.username)
         cv.put("score",highScore.score)
         cv.put("datetime",highScore.datetime)
-        var success = db.insert("sio",null,cv)
+        val success = db.insert("sio",null,cv)
         return success
     }
 

@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar!!.setTitle("Math Game")
+        supportActionBar!!.title = "Math Game"
         toolbar.setSubtitleTextColor(resources.getColor(android.R.color.white))
         toolbar.setTitleTextColor(resources.getColor(android.R.color.white))
 
@@ -51,10 +51,10 @@ class MainActivity : AppCompatActivity() {
 
         divisor.setOnClickListener {
             dialog.show()
-            back.setOnClickListener(){
+            back.setOnClickListener {
                 dialog.dismiss()
             }
-            start.setOnClickListener(){
+            start.setOnClickListener {
                 val sUsername = username.text.toString()
                 editor.putString("username",sUsername)
                 editor.apply()
@@ -70,10 +70,10 @@ class MainActivity : AppCompatActivity() {
 
         oprmath.setOnClickListener {
             dialog.show()
-            back.setOnClickListener(){
+            back.setOnClickListener {
                 dialog.dismiss()
             }
-            start.setOnClickListener() {
+            start.setOnClickListener {
                 val sUsername = username.text.toString()
                 editor.putString("username",sUsername)
                 editor.apply()
@@ -88,10 +88,10 @@ class MainActivity : AppCompatActivity() {
 
         sio.setOnClickListener {
             dialog.show()
-            back.setOnClickListener(){
+            back.setOnClickListener {
                 dialog.dismiss()
             }
-            start.setOnClickListener() {
+            start.setOnClickListener {
                 val sUsername = username.text.toString()
                 editor.putString("username",sUsername)
                 editor.apply()

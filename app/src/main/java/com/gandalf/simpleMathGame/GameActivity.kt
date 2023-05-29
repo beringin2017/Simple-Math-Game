@@ -75,7 +75,7 @@ class GameActivity : AppCompatActivity() {
                 highScore = sharedPreferences.getInt("skor",0)
                 skor.text = highScore.toString()
                 dialog.show()
-                kembali.setOnClickListener(){
+                kembali.setOnClickListener {
                     if (id == 1){
                         insertDataDivisor()
                     }
@@ -88,7 +88,7 @@ class GameActivity : AppCompatActivity() {
                     dialog.dismiss()
                     finish()
                 }
-                playagain.setOnClickListener(){
+                playagain.setOnClickListener {
                     if (id == 1){
                         insertDataDivisor()
                     }
@@ -101,7 +101,7 @@ class GameActivity : AppCompatActivity() {
                     dialog.dismiss()
                     recreate()
                 }
-                highscore.setOnClickListener(){
+                highscore.setOnClickListener {
                     if (id == 1){
                         insertDataDivisor()
                     }
@@ -123,7 +123,7 @@ class GameActivity : AppCompatActivity() {
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar!!.setTitle(judul+" - $username")
+        supportActionBar!!.title = judul+" - $username"
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
         toolbar.setSubtitleTextColor(resources.getColor(android.R.color.white))
@@ -155,7 +155,7 @@ class GameActivity : AppCompatActivity() {
     private fun insertDataDivisor(){
         val dateTime = SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().time)
         highScore = sharedPreferences.getInt("skor",0)
-        var db = MyDBHelper(this)
+        val db = MyDBHelper(this)
         val hs = HighScore(username,highScore,dateTime)
         val updateScore = db.insertDataDivisor(hs)
         if (updateScore > -1){
@@ -169,7 +169,7 @@ class GameActivity : AppCompatActivity() {
     private fun insertDataOprmath(){
         val dateTime = SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().time)
         highScore = sharedPreferences.getInt("skor",0)
-        var db = MyDBHelper(this)
+        val db = MyDBHelper(this)
         val hs = HighScore(username,highScore,dateTime)
         val updateScore = db.insertDataOprmath(hs)
         if (updateScore > -1){
@@ -183,7 +183,7 @@ class GameActivity : AppCompatActivity() {
     private fun insertDataSio(){
         val dateTime = SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(Calendar.getInstance().time)
         highScore = sharedPreferences.getInt("skor",0)
-        var db = MyDBHelper(this)
+        val db = MyDBHelper(this)
         val hs = HighScore(username,highScore,dateTime)
         val updateScore = db.insertDataSio(hs)
         if (updateScore > -1){
